@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Nunes Sports - Formulário</title>
+    </head>
+
+    <body>
+
+        <main class="container bg-light">
+            <navbar class="navbar bg-dark">
+                <a class="nav-link text-white" th:href="@{/nunes-sports/produtos}" href="../templates/produtos/index.html">Home Page</a>
+                <a class="nav-link text-white" th:href="@{/nunes-sports/produtos/detalhes}" href="../templates/produtos/detalhes.html">Lista de Produtos</a>
+            </navbar>
+            <br>
+
+            <h2 style="text-align: center;">Formulário de Produto</h2>
+
+
+            <form th:object="${produto}" th:action="${produto.idProduto == null ? '/nunes-sports/produtos' : '/nunes-sports/produtos/' + produto.idProduto}" method="post">
+
+                <div class="form-group">
+                    <label for="nomeProduto">Nome do Produto:</label>
+                    <input class="form-control" type="text" id="nomeProduto" name="nomeProduto" th:field="*{nomeProduto}" required>
+                    <br>
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricaoProduto">Descrição do Produto:</label>
+                    <textarea class="form-control" id="descricaoProduto" name="descricaoProduto" th:field="*{descricaoProduto}" required></textarea>
+                    <br>
+                </div>
+                
+                <div class="form-group">
+                    <label for="precoProduto">Preço do Produto:</label>
+                    <input class="form-control" type="number" id="precoProduto" name="precoProduto" th:field="*{precoProduto}" required>
+                    <br>
+                </div>
+
+                <button class="btn btn-success" type="submit">Salvar</button>
+            </form>
+        </main>
+    </body>
+</html>

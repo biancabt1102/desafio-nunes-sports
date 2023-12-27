@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <title>Nunes Sports - Home</title>
+    </head>
+
+    <body class="bg-secondary">
+        <main class="container">
+            <h1 style="text-align: center;" class="text-white">Bem-vindo à Nunes Sports</h1>
+
+            <nav class="navbar">
+                <a class="nav-link text-white" th:href="@{/nunes-sports/produtos/novo}" href="../templates/produtos/formulario.html">Criar Novo Produto</a>
+
+                <a class="nav-link text-white" th:href="@{/nunes-sports/produtos/detalhes}" href="../templates/produtos/detalhes.html">Ver Lista de Produtos</a>
+            </nav>
+        </main>
+    </body>
+</html>
