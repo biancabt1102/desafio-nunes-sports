@@ -29,13 +29,36 @@ public class ProdutosService {
         return repository.findById(id);
     }
 
-    public void updateProduto(Long id, Produtos produto){
-        Optional<Produtos> existeProduto =  repository.findById(id);
+//    public boolean updateProduto(Long id, Produtos produto){
+//        Optional<Produtos> existeProduto = repository.findById(id);
+//
+//        if(existeProduto.isPresent()){
+//            Produtos novoProduto = existeProduto.get();
+//
+//            if (produto.getNomeProduto() != null && !produto.getNomeProduto().isEmpty()) {
+//                novoProduto.setNomeProduto(produto.getNomeProduto());
+//            }
+//
+//            if (produto.getPrecoProduto() >= 0) {
+//                novoProduto.setPrecoProduto(produto.getPrecoProduto());
+//            }
+//
+//            if (produto.getDescricaoProduto() != null && !produto.getDescricaoProduto().isEmpty()) {
+//                novoProduto.setDescricaoProduto(produto.getDescricaoProduto());
+//            }
+//
+//            repository.save(novoProduto);
+//            return true;
+//        }
+//        return false;
+//    }
+    public boolean updateProduto(Long id, Produtos produto){
+        Optional<Produtos> existeProduto = repository.findById(id);
 
         if(existeProduto.isPresent()){
             Produtos novoProduto = existeProduto.get();
 
-            if (produto.getNomeProduto() != null) {
+            if (produto.getNomeProduto() != null && !produto.getNomeProduto().isEmpty()) {
                 novoProduto.setNomeProduto(produto.getNomeProduto());
             }
 
@@ -43,13 +66,14 @@ public class ProdutosService {
                 novoProduto.setPrecoProduto(produto.getPrecoProduto());
             }
 
-            if (produto.getDescricaoProduto() != null) {
+            if (produto.getDescricaoProduto() != null && !produto.getDescricaoProduto().isEmpty()) {
                 novoProduto.setDescricaoProduto(produto.getDescricaoProduto());
             }
 
             repository.save(novoProduto);
+            return true;
         }
-
+        return false;
     }
 
 }
